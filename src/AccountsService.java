@@ -33,7 +33,11 @@ public class AccountsService {
 
     public void createAccount(long accNo, String name, float balance, String password) {
         String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
-        accounts.add(new Accounts(accNo, name, balance, hashed));
+        Accounts newAccount = new Accounts(accNo, name, balance, hashed);
+        if (balance > 0) {
+            newAccount.addTransaction("Initial Deposit: +" + balance);
+        }
+        accounts.add(newAccount);
         saveToFile();
     }
 
@@ -55,6 +59,7 @@ public class AccountsService {
         Accounts a = findAccount(accNo);
         if (a == null) {System.out.println("Account Not Found"); return false;}
         a.setBalance(a.getBalance() + amount);
+        a.addTransaction("Deposit: +" + amount);
         saveToFile();
         System.out.println("New Balance: "+a.getBalance());
         return true;
@@ -65,6 +70,7 @@ public class AccountsService {
         if (a == null) { System.out.println("Account Not Found"); return false;}
         if (amount > a.getBalance()) { System.out.println("Invalid Amount"); return false;}
         a.setBalance(a.getBalance() - amount);
+        a.addTransaction("Withdrawal: -" + amount);
         saveToFile();
         System.out.println("New Balance: "+a.getBalance());
         return true;
@@ -94,6 +100,23 @@ public class AccountsService {
         Accounts a = findAccount(accNo);
         if (a == null) return false;
         return BCrypt.checkpw(password, a.getPassword());
+    }
+
+    public void displayTransactionHistory(long accNo) {
+        Accounts a = findAccount(accNo);
+        if (a == null) {
+            System.out.println("Account Not Found");
+            return;
+        }
+        System.out.println("--- Transaction History for " + a.getName() + " ---");
+        if (a.getTransactions().isEmpty()) {
+            System.out.println("No transactions yet.");
+        } else {
+            for (String t : a.getTransactions()) {
+                System.out.println(t);
+            }
+        }
+        System.out.println("----------------------------------------");
     }
 
 }
