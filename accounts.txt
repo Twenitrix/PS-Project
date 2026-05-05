@@ -1,0 +1,2 @@
+9991,Test User,600.0,$2a$10$ThfsIzgwNlvl9oohUgnMy.gqOFmUFk2EifpUBZ4uQlxO2Av8UG4tm,Initial Deposit: +500.0|Deposit: +200.0|Withdrawal: -100.0
+123456,Dev,500.0,$2a$10$N7tRq0ECeKXS39G8kOYKc./WE0wns7.pU0dkD2vEtFntwh6qQdiBm,Initial Deposit: +300.0|Deposit: +200.0

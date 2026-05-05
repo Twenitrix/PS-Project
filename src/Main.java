@@ -1,11 +1,11 @@
 import java.util.Scanner;
 /*Add Tomorrow
 * Display Account--
-* Initial balance
+* Initial balance--
 * Password Protection--
-* Transaction History
+* Transaction History--
 * Auto generate accNo.
-* SI calc if possible */
+* SI calc if possible--*/
 
 public class Main {
     public static void main(String[] args) {
@@ -63,6 +63,10 @@ public class Main {
                 case 2: {
                     System.out.print("Please Enter Your Account Number: ");
                     long accNo = scanner.nextLong();
+                    while (!service.checkAccount(accNo)) {
+                        System.out.print("This Account Number Doesn't Exist, Please Enter The Correct Account Number: ");
+                        accNo = scanner.nextLong();
+                    }
                     scanner.nextLine();
                     System.out.print("Please Enter Your Password: ");
                     String password = scanner.nextLine();
@@ -83,6 +87,10 @@ public class Main {
                 case 3: {
                     System.out.print("Please Enter Your Account Number: ");
                     long accNo = scanner.nextLong();
+                    while (!service.checkAccount(accNo)) {
+                        System.out.print("This Account Number Doesn't Exist, Please Enter The Correct Account Number: ");
+                        accNo = scanner.nextLong();
+                    }
                     scanner.nextLine();
                     System.out.print("Please Enter Your Password: ");
                     String password = scanner.nextLine();
@@ -102,6 +110,10 @@ public class Main {
                 case 4: {
                     System.out.print("Please Enter Account No: ");
                     long accNo = scanner.nextLong();
+                    while (!service.checkAccount(accNo)) {
+                        System.out.print("This Account Number Doesn't Exist, Please Enter The Correct Account Number: ");
+                        accNo = scanner.nextLong();
+                    }
                     scanner.nextLine();
                     System.out.print("Please Enter Your Password: ");
                     String password = scanner.nextLine();
@@ -118,6 +130,10 @@ public class Main {
                 case 5: {
                     System.out.print("Please Enter Account No.: ");
                     long accNo = scanner.nextLong();
+                    while (!service.checkAccount(accNo)) {
+                        System.out.print("This Account Number Doesn't Exist, Please Enter The Correct Account Number: ");
+                        accNo = scanner.nextLong();
+                    }
                     scanner.nextLine();
                     System.out.print("Please Enter Your Password: ");
                     String password = scanner.nextLine();
@@ -133,6 +149,10 @@ public class Main {
                 case 6: {
                     System.out.print("Please Enter Account No.: ");
                     long accNo = scanner.nextLong();
+                    while (!service.checkAccount(accNo)) {
+                        System.out.print("This Account Number Doesn't Exist, Please Enter The Correct Account Number: ");
+                        accNo = scanner.nextLong();
+                    }
                     scanner.nextLine();
                     System.out.print("Please Enter Your Password: ");
                     String password = scanner.nextLine();
@@ -158,6 +178,10 @@ public class Main {
                 case 8: {
                     System.out.print("Please Enter Account No: ");
                     long accNo = scanner.nextLong();
+                    while (!service.checkAccount(accNo)) {
+                        System.out.print("This Account Number Doesn't Exist, Please Enter The Correct Account Number: ");
+                        accNo = scanner.nextLong();
+                    }
                     scanner.nextLine();
                     System.out.print("Please Enter Your Password: ");
                     String password = scanner.nextLine();
@@ -171,6 +195,10 @@ public class Main {
                 case 9: {
                     System.out.print("Please Enter Account No: ");
                     long accNo = scanner.nextLong();
+                    while (!service.checkAccount(accNo)) {
+                        System.out.print("This Account Number Doesn't Exist, Please Enter The Correct Account Number: ");
+                        accNo = scanner.nextLong();
+                    }
                     scanner.nextLine();
                     Accounts a = service.findAccount(accNo);
                     if (a == null) {
